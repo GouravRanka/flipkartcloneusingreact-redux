@@ -1,6 +1,7 @@
 
 import axios from 'axios'
 import * as action from  "../constants/Productconstants.js"
+const url = 'http://localhost:8080'
 
 
 // upr vali line m action ese hi likha iska koi mtlb nhi hai koi or naam se bhi import kr skte hai 
@@ -8,7 +9,7 @@ import * as action from  "../constants/Productconstants.js"
 export const getProducts = ()=> async (dispatch)=>
 {
 try{
-const {data}=await axios.get(`/products`)
+const {data}=await axios.get(`${url}/products`)
 dispatch({type:action.GET_PRODUCT_SUCCESS,payload:data })}
 catch(error)
 {
@@ -20,7 +21,7 @@ catch(error)
 export const getProductDetails= (id)  => async(dispatch)=>
 {
 try{
-const  {data}=await axios.get(`/product/${id}`)
+const  {data}=await axios.get(`${url}/product/${id}`)
 dispatch({type:action.GET_PRODUCT_DETAIL_SUCCESS,payload:data })
 }
 catch(error){
