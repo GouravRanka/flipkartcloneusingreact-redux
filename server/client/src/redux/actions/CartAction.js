@@ -1,12 +1,13 @@
 import axios from 'axios'
 import React from 'react'
 import * as action from "../constants/CartConstant.js"
+const url = 'http://localhost:8080'
 
 
 
 export const AddToCart = (id) =>async(dispatch)=> {
     try{
-const {data}= await axios.get(`/product/${id}`)
+const {data}= await axios.get(`${url}/product/${id}`)
 
 dispatch({type:action.ADD_TO_CART_SUCCESS,payload:data })
     }
